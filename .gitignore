@@ -112,3 +112,6 @@ venv.bak/
 # secrets
 secrets.sh
 secrets.py
+
+# my test folder
+TEST/
