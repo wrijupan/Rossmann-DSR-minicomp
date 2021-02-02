@@ -115,3 +115,5 @@ secrets.py
 
 # my test folder
 TEST/
+
+# Add whatever you wish to ignore
