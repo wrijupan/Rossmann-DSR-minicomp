@@ -1,21 +1,27 @@
-def missing_report(df, percentage=False):
+def missing_report(df, pd):
     """
     Description:
-    Lists all columns of a dataframe together with information on null values
+    Reports the amount of null values as total and percentage, and data type for each column of a dataframe
 
     Input:
     - df: dataframe
-    - percentage: flag for showing percentage of null values (default 'False' means totals are shown)
+    - pd: alias for pandas package
 
     Output:
-    - report: series containing information on null values
-    """
-    if percentage == False:
-        report = df.isnull().sum()
-    else:
-        report = round(df.isnull().sum() / df.shape[0] * 100, 2)
-    return report
+    - report: dataframe containing information on null values and data types
 
+    Example:
+    import pandas as pd
+    ...
+    report = missing_report(df, pd)
+    missing_report(df, pd)
+    """
+    null_total = df.isnull().sum()
+    null_percentage = round(df.isnull().sum() / df.shape[0] * 100, 2)
+    types = df.dtypes
+    report = pd.concat([null_total, null_percentage, types], axis=1)
+    report.columns = ['Null (total)', 'Null (percent)', 'Type']
+    return report
 
 
 """
@@ -30,10 +36,15 @@ def const_imputation(df, columns, values):
     Input:
     - df: dataframe
     - columns: list of column names
-    - values: list of values for replacing
+    - values: list of values or single value for replacing
 
     Output:
     - df: modified dataframe
+
+    Example:
+    df = const_imputation(df, ['column_A'], 100)
+    df = const_imputation(df, ['column_A', 'column_B'], 100)
+    df = const_imputation(df, ['column_A', 'column_B'], [100, 50])
     """
     df[columns] = df[columns].fillna(values, axis=0)
     return df
@@ -52,6 +63,11 @@ def mean_imputation(df, columns, enforce_int=False):
     Output:
     - df: modified dataframe
     - mean_imp_values: series containing calculated mean
+
+    Example:
+    df, mean_imp_values =  mean_imputation(df, ['column_A'])
+    df, mean_imp_values =  mean_imputation(df, ['column_A'], enforce_int=True)
+    df, mean_imp_values =  mean_imputation(df, ['column_A','column_B'])
     """
     if enforce_int:
         mean_imp_values = np.floor(df[columns].mean())
@@ -73,11 +89,14 @@ def freq_encoding(df, column):
 
     Input:
     - df: dataframe
-    - column: column
+    - column: column name as string
 
     Output:
     - df: modified dataframe
     - fenc_values: series containing frequency encoding values
+
+    Example:
+    df, fenc_values = freq_encoding(df, 'column_A')
     """
     fenc_values = df[column].value_counts()
     new_column = column + '_fenc'
@@ -91,11 +110,14 @@ def mean_encoding(df, column):
 
     Input:
     - df: dataframe
-    - column: column
+    - column: column names as string
 
     Output:
     - df: modified dataframe
     - mean_values: series containing mean encoding values
+
+    Example:
+    df, menc_values = mean_encoding(df, 'column_A')
     """
     menc_values = df.groupby(by = column).mean()['Sales']
     df[column + '_menc'] = df[column].map(menc_values)
@@ -108,11 +130,14 @@ def ordinal_encoding(df, column, ordinal_dict):
 
     Input:
     - df: dataframe
-    - column: column
+    - column: column name as string
     - ordinal_dict: dictionary containing ordinal encoding values
 
     Output:
     - df: modified dataframe
+
+    Example:
+    df = ordinal_encoding(df, 'column_A', {'large': 3, 'medium': 2, 'small': 1})
     """
     df[column + '_orenc'] = df[column].map(ordinal_dict)
     return df
