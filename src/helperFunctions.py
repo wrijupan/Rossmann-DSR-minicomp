@@ -62,20 +62,19 @@ def mean_imputation(df, columns, enforce_int=False):
 
     Output:
     - df: modified dataframe
-    - mean_imp_values: series containing calculated mean
 
     Example:
-    df, mean_imp_values =  mean_imputation(df, ['column_A'])
-    df, mean_imp_values =  mean_imputation(df, ['column_A'], enforce_int=True)
-    df, mean_imp_values =  mean_imputation(df, ['column_A','column_B'])
+    df =  mean_imputation(df, ['column_A'])
+    df =  mean_imputation(df, ['column_A'], enforce_int=True)
+    df =  mean_imputation(df, ['column_A','column_B'])
     """
     if enforce_int:
-        mean_imp_values = np.floor(df[columns].mean())
+        mean_imp_values = round(df[columns].mean())
     else:
         mean_imp_values = df[columns].mean()
 
     df = df.fillna(mean_imp_values, axis=0)
-    return df, mean_imp_values
+    return df
 
 
 """
