@@ -46,6 +46,14 @@ PromoInterval - describes the consecutive intervals Promo2 is started, naming th
 
 ```
 
+### Instructions
+```
+1. Clone the repo
+2. Create a conda environment
+3. Install the requirements.txt using pip
+4. Run the notebook under the 'results' folder
+```
+
 ## Requirements
 
 `certifi==2020.12.5
