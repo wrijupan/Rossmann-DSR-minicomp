@@ -4,13 +4,12 @@
 
 The aim of this project is to apply a prediction model to sales in Rossmann stores according provided data. Rossmann is one of the largest drug store chains in Europe established in 1972. 
 
-## Getting Started
-
-Prerequisites and the setup is provided in the [samsonafo/DSR_mini_comp](https://github.com/samsonafo/DSR_mini-comp) GitHub repository. 
-
 ## Data Set
 
 `train.csv`- training data for sales
+
+`holdout.csv`- test set
+
 `store.csv` - information about each store
 
 ### Data Dictionary
@@ -46,50 +45,28 @@ PromoInterval - describes the consecutive intervals Promo2 is started, naming th
 
 ```
 
-### Instructions
-```
-1. Clone the repo
-2. Create a conda environment
-3. Install the requirements.txt using pip
-4. Run the notebook under the 'results' folder
-```
-
 ## Requirements
+Python 3.7 or later and the following packages: 
 
-`certifi==2020.12.5
-cycler==0.10.0
-flake8==3.8.4
-holidays==0.10.5.2
-importlib-metadata==3.4.0
-joblib==1.0.0
-kiwisolver==1.3.1
-matplotlib==3.3.2
-mccabe==0.6.1
-numpy==1.20.0
-pandas==1.1.3
-Pillow==8.1.0
-plotly==4.14.3
-pycodestyle==2.6.0
-pyflakes==2.2.0
-pyparsing==2.4.7
-python-dateutil==2.8.1
-python-dotenv==0.14.0
-pytz==2021.1
-retrying==1.3.3
-scikit-learn==0.23.2
-scipy==1.6.0
-seaborn==0.11.1
-six==1.15.0
-threadpoolctl==2.1.0
-typing-extensions==3.7.4.3
-zipp==3.4.0`
+`pandas`
+`numpy`
+`scikit-learn`
+`matplotlib`
+`seaborn`
+`xgboost`
+`holidays`
 
+## How to use this repository
+Clone the repository to your local machine by running:
 
-## Data Cleaning and Feature Engineering
+`git clone https://github.com/wrijupan/Rossmann-DSR-minicomp`
 
-## Modeling
+Create a python environment (3.7 or later) and install the requirements from file
 
-## Results
+`requirements.txt`. 
 
+Run the notebook 
 
+`rossmann_sales_predict.ipynb` 
 
+that is found in the results directory using this environment.
