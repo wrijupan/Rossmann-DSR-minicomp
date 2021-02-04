@@ -1,12 +1,15 @@
 # Rossmann Dataset Analysis DSR Mini-Competition
 
 ## Project Description
+
 The aim of this project is to apply a prediction model to sales in Rossmann stores according provided data. Rossmann is one of the largest drug store chains in Europe established in 1972. 
 
 ## Getting Started
+
 Prerequisites and the setup is provided in the [samsonafo/DSR_mini_comp](https://github.com/samsonafo/DSR_mini-comp) GitHub repository. 
 
 ## Data Set
+
 `train.csv`- training data for sales
 `store.csv` - information about each store
 
@@ -42,3 +45,4 @@ Promo2Since[Year/Week] - describes the year and calendar week when the store sta
 PromoInterval - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
 
 ```
+
