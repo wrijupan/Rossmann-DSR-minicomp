@@ -46,3 +46,42 @@ PromoInterval - describes the consecutive intervals Promo2 is started, naming th
 
 ```
 
+## Requirements
+
+`certifi==2020.12.5
+cycler==0.10.0
+flake8==3.8.4
+holidays==0.10.5.2
+importlib-metadata==3.4.0
+joblib==1.0.0
+kiwisolver==1.3.1
+matplotlib==3.3.2
+mccabe==0.6.1
+numpy==1.20.0
+pandas==1.1.3
+Pillow==8.1.0
+plotly==4.14.3
+pycodestyle==2.6.0
+pyflakes==2.2.0
+pyparsing==2.4.7
+python-dateutil==2.8.1
+python-dotenv==0.14.0
+pytz==2021.1
+retrying==1.3.3
+scikit-learn==0.23.2
+scipy==1.6.0
+seaborn==0.11.1
+six==1.15.0
+threadpoolctl==2.1.0
+typing-extensions==3.7.4.3
+zipp==3.4.0`
+
+
+## Data Cleaning and Feature Engineering
+
+## Modeling
+
+## Results
+
+
+
